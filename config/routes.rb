@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get 'schedules/index'
-  root to: "schedules#index"
-  resources :schedules
+root to: 'schedules#index'
+
+get '/shedules/serch', to: 'schedule#search'
+  resources :schedules, only: [:index,:new, :create, :show, :edit, :update] do
+    collection do
+      get 'search'
+    end
+  end
 end

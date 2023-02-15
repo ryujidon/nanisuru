@@ -124,6 +124,9 @@ a {
 }
 
 /* メイン */
+.search-form{
+  text-align:  center;  
+}
 
 .greeting{
   margin-bottom: 20px;

@@ -15,4 +15,13 @@ class Schedule < ApplicationRecord
   validates :budget_id,          numericality: { other_than: 1 , message: "を選択してください"} 
   validates :image,              presence: true  
 
+
+  def self.search(search)
+    if search != ""
+      Schedule.where('text LIKE(?)', "%#{search}%")
+    else
+      Schedule.all
+    end
+  end
+
 end

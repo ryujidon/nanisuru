@@ -1,4 +1,7 @@
 class SchedulesController < ApplicationController
+
+  before_action :search_schedule ,only: [:index,:search]
+
   def index
     @schedules = Schedule.all
   end
@@ -40,9 +43,17 @@ class SchedulesController < ApplicationController
     redirect_to root_path
   end
 
-  private
-  def schedule_params
-    params.require(:schedule).permit(:title,:detail,:category_id,:people_id,:budget_id, :image)
+  def search
+    @results = @q.result
+
   end
 
+  private
+  def schedule_params
+    params.require(:schedule).permit(:title,:detail,:schedule_id,:people_id,:budget_id, :image)
+  end
+
+  def search_schedule
+    @q = Schedule.ransack(params[:q]) 
+  end
 end
