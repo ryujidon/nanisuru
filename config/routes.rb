@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get 'schedule/index'
-  root to: "schedule#index"
+  get 'schedules/index'
+  root to: "schedules#index"
+  resources :schedules
 end

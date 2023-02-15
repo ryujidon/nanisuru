@@ -1,0 +1,34 @@
+<%= form_with model: @schedule, local: true do |f|%>
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_field :title, id:"schedule_title" %>
+  </div>
+    <div class="field">
+    <%= f.label :image, "サムネイル画像" %><br />
+    <%= f.file_field :image, id:"suhedule_image" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category, "カテゴリー" %><br />
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"schedule-category"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :people, "人数" %><br />
+        <%= f.collection_select(:people_id, People.all, :id, :name, {}, {class:"select-box", id:"schedule-people"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :budget, "予算" %><br />
+        <%= f.collection_select(:budget_id, Budget.all, :id, :name, {}, {class:"select-box", id:"schedule-budget"}) %>
+  </div>
+
+    <div class="field">
+    <%= f.label :detail, "スケジュール" %><br />
+    <%= f.text_area :detail, class: :form__text, id:"schedule_detail" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
