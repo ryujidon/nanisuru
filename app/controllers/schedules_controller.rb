@@ -14,7 +14,7 @@ class SchedulesController < ApplicationController
       @schedule = Schedule.new(schedule_params)
       if @schedule.save
         redirect_to root_path
-      else      
+      else
         render :new
       end
   end
@@ -50,7 +50,7 @@ class SchedulesController < ApplicationController
 
   private
   def schedule_params
-    params.require(:schedule).permit(:title,:detail,:schedule_id,:people_id,:budget_id, :image)
+    params.require(:schedule).permit(:title,:detail,:category_id,:schedule_id,:people_id,:budget_id, :image)
   end
 
   def search_schedule
