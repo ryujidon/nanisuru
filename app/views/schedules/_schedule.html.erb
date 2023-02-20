@@ -1,0 +1,8 @@
+<div class="card">
+  <%= link_to image_tag( schedule.image, class: :card__img ), schedule_path(schedule.id)%>
+  <div class="card__body">
+    <%= link_to schedule.title, schedule_path(schedule.id), class: :card__title%>
+    <p class="card__summary">
+    </p>
+  </div>
+</div>

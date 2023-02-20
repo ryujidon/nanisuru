@@ -1,0 +1,25 @@
+
+<main class="main">
+  <div class="inner">
+
+    <div class="schedule__wrapper">
+      <p class="schedule__hedding">
+    <% @results.each do |schedule| %>
+        <%= schedule.title %>
+      </p>
+      <div class="schedule__image">
+  <%= link_to image_tag( schedule.image), schedule_path(schedule.id)%>
+      </div>
+      <div class="schedule__body">
+        <div class="schedule__detail">
+          <p class="detail__title">プラン</p>
+          <pre class="detail__message">
+            <%= schedule.detail %>
+          </pre>
+  </div>
+</div>
+<% end %>
+
+    </div>
+  </div>
+</main>
