@@ -3,17 +3,17 @@
 
     <div class="schedule__wrapper">
       <p class="schedule__hedding">
-    <% @results.each do |schedule| %>
-        <%= schedule.title %>
+    <% @results.each do |s| %>
+        <%= s.title %>
       </p>
       <div class="schedule__image">
-  <%= link_to image_tag( schedule.image), schedule_path(schedule.id)%>
+  <%= link_to image_tag(s.image), schedule_path(s.id)%>
 
       <div class="schedule__body">
         <div class="schedule__detail">
           <p class="detail__title">プラン</p>
           <pre class="detail__message">
-            <%= schedule.detail %>
+            <%= s.detail %>
           </pre>
 <% end %>
 </main>
